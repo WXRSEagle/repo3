@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.teach.mapper.FileMapper">
+ 	<insert id="insert">
+ 	insert into files(FILE_ID,	FILE_CONTENT_TYPE,FILE_CREATE_TIME,FILE_NAME,FILE_URI,FILE_STATUS) values(#{fileId},#{fileContentType},#{fileCreateTime},#{fileName},#{fileUri},#{fileStatus})
+ 	</insert>
+    <delete id="delect">
+    DELETE from files where FILE_ID=#{fileId}
+    </delete>
+    <update id="update">
+    UPDATE files SET FILE_CONTENT_TYPE=#{fileContentType}, FILE_CREATE_TIME=#{fileCreateTime}, FILE_NAME=#{fileName}, FILE_URI=#{flieUri}, FILE_STATUS=#{fileStatus} WHERE #{fileId}
+    </update>
+    <select id="selectAll" resultType="com.teach.entity.File">
+    select * from files
+    </select>
+    <select id="countAll" resultType="int">
+    select count(*)  from files
+    </select>
+    <select id="select" resultType="com.teach.entity.File">
+    select * from files order by FILE_CREATE_TIME limit #{index},#{len}
+    </select>
+</mapper>

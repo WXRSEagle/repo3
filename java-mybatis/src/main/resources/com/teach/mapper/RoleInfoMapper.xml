@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.teach.mapper.RoleInfoMapper">
+ 	<insert id="insert">
+ 	insert into role_info(role_id,role_name) values(#{roleId},#{roleName})
+ 	</insert>
+    <delete id="delect">
+    DELETE from role_info where role_id=#{id}
+    </delete>
+    <update id="update">
+    UPDATE role_info set role_name=#{roleName} where role_id=#{roleId}
+    </update>
+    <select id="selectAll" resultType="com.teach.entity.RoleInfo">
+    select * from role_info
+    </select>
+</mapper>
